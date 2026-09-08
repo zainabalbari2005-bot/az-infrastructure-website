@@ -1,0 +1,73 @@
+# Dossiers et fichiers à ignorer
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node.js (si utilisation de npm/webpack)
+node_modules/
+package-lock.json
+dist/
+build/
+
+# Fichiers de configuration locaux
+.env
+.env.local
+.env.*.local
+config.local.js
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.backup
+.tmp/
+
+# Systèmes de fichiers
+.DS_Store
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Fichiers de test
+*.test.js
+*.spec.js
+__tests__/
+
+# Fichiers de base de données (si applicable)
+*.db
+*.sqlite
+*.sql
+
+# Images de développement/test
+images/temp/
+images/test/
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+
+# Archive
+*.zip
+*.tar.gz
+*.rar
