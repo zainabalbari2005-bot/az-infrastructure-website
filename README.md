@@ -133,12 +133,12 @@ Le site est optimisé pour les recherches Google belges :
 Les éléments suivants doivent être personnalisés :
 
 ### Informations de l'entreprise
-- [ ] Numéro de téléphone
-- [ ] Adresse email
-- [ ] Adresse physique complète
-- [ ] Zone d'intervention exacte
-- [ ] Horaires d'ouverture
-- [ ] Numéro d'entreprise (TVA)
+- [ ] Numéro de téléphone 0465822218
+- [ ] Adresse email moim14994@gmail.com
+- [ ] Adresse physique complète verviers
+- [ ] Zone d'intervention exacte liège
+- [ ] Horaires d'ouverture 24H 7/7
+- [ ] Numéro d'entreprise (TVA) XXXXXX
 
 ### Contenu multimédia
 - [ ] Remplacer les images placeholders par des vraies photos
