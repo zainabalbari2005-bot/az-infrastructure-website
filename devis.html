@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demande de devis - AZ Infrastructure - Construction et rénovation en Belgique">
+    <meta name="keywords" content="devis gratuit, estimation travaux, demande devis belgique">
+    <title>Demande de Devis - AZ Infrastructure</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .quote-section {
+            padding: 4rem 0;
+        }
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        .quote-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .quote-form p {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .required {
+            color: #ef4444;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .checkbox-group {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 2px solid var(--border-color);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .checkbox-item:last-child {
+            margin-bottom: 0;
+        }
+        input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+        .file-upload-label {
+            display: block;
+            padding: 1rem;
+            background: white;
+            border: 2px dashed var(--primary-color);
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .file-upload-label:hover {
+            background-color: var(--light-gray);
+        }
+        .file-upload-label.has-files {
+            border-style: solid;
+            background-color: #dbeafe;
+        }
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.05rem;
+            margin-top: 1rem;
+        }
+        .submit-btn:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+        .form-note {
+            background: #fef08a;
+            padding: 1rem;
+            border-left: 4px solid #eab308;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            color: #713f12;
+        }
+        @media (max-width: 768px) {
+            .quote-container {
+                padding: 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>AZ Infrastructure</h1>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <button class="cta-btn">Demander un devis</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Demande de Devis</h1>
+            <p>Obtenez une évaluation précise et personnalisée pour votre projet</p>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-container">
+                <form class="quote-form" id="quoteForm">
+                    <h2>Formulaire de Demande de Devis</h2>
+                    <p>Remplissez le formulaire ci-dessous pour recevoir un devis gratuit et sans engagement</p>
+
+                    <div class="form-note">
+                        ℹ️ Les champs marqués d'un <span class="required">*</span> sont obligatoires
+                    </div>
+
+                    <!-- Personal Info -->
+                    <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                        <legend style="font-size: 1.1rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">Vos Coordonnées</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Prénom <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="commune">Commune <span class="required">*</span></label>
+                            <input type="text" id="commune" name="commune" placeholder="Ex: Bruxelles, Charleroi, Liège..." required>
+                        </div>
+                    </fieldset>
+
+                    <!-- Project Info -->
+                    <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                        <legend style="font-size: 1.1rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">Type de Travaux</legend>
+                        
+                        <div class="form-group">
+                            <label>Sélectionnez le(s) domaine(s) concerné(s) <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sanitaire" name="services" value="Installations sanitaires">
+                                    <label for="sanitaire">Installations sanitaires et techniques</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="electricite" name="services" value="Électricité">
+                                    <label for="electricite">Électricité et électrotechnique</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="chauffage" name="services" value="Chauffage, climatisation, ventilation">
+                                    <label for="chauffage">Chauffage, climatisation et ventilation</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="isolation" name="services" value="Isolation et étanchéité">
+                                    <label for="isolation">Isolation et étanchéité</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="construction" name="services" value="Construction et maçonnerie">
+                                    <label for="construction">Construction et maçonnerie</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="finitions" name="services" value="Sols, murs et finitions">
+                                    <label for="finitions">Sols, murs et finitions</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="exterieur" name="services" value="Aménagement extérieur">
+                                    <label for="exterieur">Aménagement extérieur et génie civil</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="nettoyage" name="services" value="Nettoyage professionnel">
+                                    <label for="nettoyage">Nettoyage professionnel</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="professionnels" name="services" value="Solutions pour professionnels">
+                                    <label for="professionnels">Solutions pour professionnels</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Project Details -->
+                    <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                        <legend style="font-size: 1.1rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">Détails du Projet</legend>
+                        
+                        <div class="form-group">
+                            <label for="description">Description du projet <span class="required">*</span></label>
+                            <textarea id="description" name="description" placeholder="Décrivez votre projet en détail (type de travaux, superficies, caractéristiques spéciales, etc.)" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="surface">Surface approximative (m²)</label>
+                                <input type="number" id="surface" name="surface" placeholder="Ex: 50">
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Budget approximatif (optionnel)</label>
+                                <input type="text" id="budget" name="budget" placeholder="Ex: 5000€ - 10000€">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">Date souhaitée pour débuter <span class="required">*</span></label>
+                            <input type="date" id="startDate" name="startDate" required>
+                        </div>
+                    </fieldset>
+
+                    <!-- File Upload -->
+                    <fieldset style="border: none; padding: 0; margin-bottom: 2rem;">
+                        <legend style="font-size: 1.1rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">Documents (Optionnel)</legend>
+                        
+                        <div class="form-group">
+                            <label>Joindre des photos ou documents</label>
+                            <div class="file-upload">
+                                <input type="file" id="files" name="files" multiple accept="image/*,.pdf">
+                                <label for="files" class="file-upload-label">
+                                    📎 Cliquez pour sélectionner des fichiers ou glissez-les ici
+                                </label>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #6b7280; margin-top: 0.5rem;">Formats acceptés: images (JPG, PNG), PDF</p>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="submit-btn">Envoyer ma Demande de Devis</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section style="background: var(--light-gray); padding: 3rem 0;">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">À Propos de Nos Devis</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">✓ Gratuit et Sans Engagement</h3>
+                    <p style="color: #6b7280; margin: 0;">Tous nos devis sont gratuits et sans obligation d'achat.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">✓ Personnalisé</h3>
+                    <p style="color: #6b7280; margin: 0;">Chaque devis est adapté à votre projet spécifique.</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">✓ Rapide</h3>
+                    <p style="color: #6b7280; margin: 0;">Vous recevrez un devis dans les 48 heures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AZ Infrastructure</h3>
+                    <p>Votre partenaire de confiance pour tous vos projets de construction et rénovation en Belgique</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Construction</a></li>
+                        <li><a href="services.html">Rénovation</a></li>
+                        <li><a href="services.html">Installations techniques</a></li>
+                        <li><a href="services.html">Nettoyage professionnel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>
+                        Tél: <span class="placeholder">[À compléter]</span><br>
+                        Email: <span class="placeholder">[À compléter]</span><br>
+                        Adresse: <span class="placeholder">[À compléter]</span><br>
+                        Zone d'intervention: <span class="placeholder">[À compléter]</span>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AZ Infrastructure. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
