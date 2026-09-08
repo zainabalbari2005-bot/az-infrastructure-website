@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nos réalisations - AZ Infrastructure - Projets de construction, rénovation et installations techniques en Belgique">
+    <meta name="keywords" content="réalisations, projets construction, avant après, galerie travaux belgique">
+    <title>Nos Réalisations - AZ Infrastructure</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-section {
+            padding: 3rem 0;
+        }
+        .gallery-category {
+            margin-bottom: 4rem;
+        }
+        .gallery-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 2rem 1rem 1rem;
+            color: white;
+            transform: translateY(50%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-gray), #d1d5db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .before-after-section {
+            background: var(--light-gray);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        .before-after-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: #ccc;
+        }
+        .comparison-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .comparison-slider .img-after {
+            clip-path: inset(0 50% 0 0);
+        }
+        .comparison-slider .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            cursor: col-resize;
+            transform: translateX(-50%);
+        }
+        .before-after-labels {
+            padding: 1rem;
+            text-align: center;
+        }
+        .before-after-labels h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>AZ Infrastructure</h1>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="realisations.html" class="active">Réalisations</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <button class="cta-btn">Demander un devis</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Nos Réalisations</h1>
+            <p>Découvrez nos projets en construction, rénovation, installations techniques et aménagement</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            
+            <!-- Construction -->
+            <div class="gallery-category">
+                <h3>Construction</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🏢</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Projet Construction 1</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🏗️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Projet Construction 2</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🏘️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Projet Construction 3</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rénovation -->
+            <div class="gallery-category">
+                <h3>Rénovation</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🏠</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Rénovation Maison 1</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🪟</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Rénovation Façade</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🛋️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Rénovation Intérieure</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installations Techniques -->
+            <div class="gallery-category">
+                <h3>Installations Techniques</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">⚡</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Installation Électrique</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🌡️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Installation Chauffage</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">💨</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Installation Ventilation</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sanitaire -->
+            <div class="gallery-category">
+                <h3>Travaux Sanitaires</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🚿</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Salle de Bains</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🚽</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Installation Sanitaire</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">💧</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Plomberie</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrelage -->
+            <div class="gallery-category">
+                <h3>Carrelage et Revêtements</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🧱</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Carrelage Sol</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🟦</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Carrelage Mur</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">⬜</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Revêtement Premium</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peinture -->
+            <div class="gallery-category">
+                <h3>Peinture et Finitions</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🎨</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Peinture Intérieure</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🖌️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Peinture Extérieure</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">✨</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Finitions Décoratives</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aménagement Extérieur -->
+            <div class="gallery-category">
+                <h3>Aménagement Extérieur</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🌳</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Aménagement Paysager</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🛣️</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Construction Voiries</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🚶</div>
+                        <div class="gallery-item-overlay">
+                            <h4>Allées et Terrasses</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="before-after-section">
+        <div class="container">
+            <h2>Transformations Avant/Après</h2>
+            <p class="section-subtitle">Découvrez la différence que nos services peuvent apporter à vos espaces</p>
+            
+            <div class="before-after-grid">
+                <div class="before-after-item">
+                    <div class="comparison-slider">
+                        <img src="images/before-1.jpg" alt="Avant" class="img-before">
+                        <img src="images/after-1.jpg" alt="Après" class="img-after">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="before-after-labels">
+                        <h4>Rénovation Complète</h4>
+                        <p>Avant/Après</p>
+                    </div>
+                </div>
+
+                <div class="before-after-item">
+                    <div class="comparison-slider">
+                        <img src="images/before-2.jpg" alt="Avant" class="img-before">
+                        <img src="images/after-2.jpg" alt="Après" class="img-after">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="before-after-labels">
+                        <h4>Modernisation Intérieur</h4>
+                        <p>Avant/Après</p>
+                    </div>
+                </div>
+
+                <div class="before-after-item">
+                    <div class="comparison-slider">
+                        <img src="images/before-3.jpg" alt="Avant" class="img-before">
+                        <img src="images/after-3.jpg" alt="Après" class="img-after">
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="before-after-labels">
+                        <h4>Rénovation Façade</h4>
+                        <p>Avant/Après</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Inspiré par nos réalisations ?</h2>
+            <p>Demandez un devis personnalisé pour votre projet</p>
+            <a href="devis.html" class="btn btn-light">Demander un devis</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AZ Infrastructure</h3>
+                    <p>Votre partenaire de confiance pour tous vos projets de construction et rénovation en Belgique</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="realisations.html">Réalisations</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Construction</a></li>
+                        <li><a href="services.html">Rénovation</a></li>
+                        <li><a href="services.html">Installations techniques</a></li>
+                        <li><a href="services.html">Nettoyage professionnel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>
+                        Tél: <span class="placeholder">[À compléter]</span><br>
+                        Email: <span class="placeholder">[À compléter]</span><br>
+                        Adresse: <span class="placeholder">[À compléter]</span><br>
+                        Zone d'intervention: <span class="placeholder">[À compléter]</span>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AZ Infrastructure. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
